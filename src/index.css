@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Consolas:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Consolas:wght@400;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -7,7 +7,6 @@
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
-
 
 @layer base {
   :root {
@@ -44,9 +43,17 @@ All colors MUST be HSL.
     --ring: 211 89% 26%;
 
     /* Banking gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(211 89% 26%), hsl(211 89% 36%));
-    --gradient-accent: linear-gradient(135deg, hsl(142 76% 36%), hsl(142 76% 46%));
-    
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(211 89% 26%),
+      hsl(211 89% 36%)
+    );
+    --gradient-accent: linear-gradient(
+      135deg,
+      hsl(142 76% 36%),
+      hsl(142 76% 46%)
+    );
+
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
@@ -112,11 +119,16 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Consolas', 'Monaco', 'Lucida Console', monospace;
+    font-family: "Consolas", "Monaco", "Lucida Console", monospace;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Consolas', 'Monaco', 'Lucida Console', monospace;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Consolas", "Monaco", "Lucida Console", monospace;
     font-weight: 600;
   }
 }
