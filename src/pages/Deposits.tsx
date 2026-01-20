@@ -63,7 +63,7 @@ const Deposits = () => {
     return (
       <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
         <Header userEmail={user?.email} userName={profile?.full_name} />
-        <div className="flex-1 flex items-center justify-center">
+        <div className="flex-1 flex items-center justify-center pt-24">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
         </div>
       </div>
@@ -75,7 +75,7 @@ const Deposits = () => {
       <Header userEmail={user?.email} userName={profile?.full_name} />
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 pt-24 pb-12">
         <div className="mb-6">
           <Button
             variant="ghost"

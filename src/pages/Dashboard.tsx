@@ -160,7 +160,7 @@ const Dashboard = () => {
     return (
       <div className="min-h-screen bg-gradient-to-br from-background to-secondary flex flex-col">
         <Header userEmail={user?.email} userName={profile?.full_name} />
-        <div className="flex-1 flex items-center justify-center">
+        <div className="flex-1 flex items-center justify-center pt-24">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
         </div>
       </div>
@@ -173,7 +173,7 @@ const Dashboard = () => {
     return (
       <div className="min-h-screen bg-gradient-to-br from-background to-secondary">
         <Header userEmail={user?.email} userName={profile?.full_name} />
-        <main className="container mx-auto px-4 py-8 flex items-center justify-center min-h-[calc(100vh-80px)]">
+        <main className="container mx-auto px-4 pt-24 pb-8 flex items-center justify-center min-h-[calc(100vh)]">
           <GoCardlessCallback
             onComplete={() => {
               // Clear URL params and reload data
@@ -190,7 +190,7 @@ const Dashboard = () => {
       <Header userEmail={user?.email} userName={profile?.full_name} />
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 pt-24 pb-12">
         {isLoading ? (
           <div className="flex items-center justify-center min-h-[50vh]">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
@@ -221,7 +221,7 @@ const Dashboard = () => {
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="text-4xl font-bold text-primary mb-4">
+                <div className="text-3xl md:text-4xl font-bold text-primary mb-4">
                   {showBalance
                     ? formatCurrency(account?.balance || 0)
                     : "••••••"}
@@ -300,9 +300,9 @@ const Dashboard = () => {
                         key={transaction.id}
                         className="flex items-center justify-between p-4 rounded-lg bg-muted/30"
                       >
-                        <div className="flex items-center space-x-3">
+                        <div className="flex items-center space-x-3 min-w-0">
                           <div
-                            className={`p-2 rounded-full ${
+                            className={`p-2 rounded-full flex-shrink-0 ${
                               transaction.type === "credit"
                                 ? "bg-accent/20 text-accent"
                                 : "bg-destructive/20 text-destructive"
@@ -314,8 +314,8 @@ const Dashboard = () => {
                               <ArrowUpRight className="h-4 w-4" />
                             )}
                           </div>
-                          <div>
-                            <p className="font-medium">
+                          <div className="min-w-0">
+                            <p className="font-medium truncate">
                               {transaction.description || "Transaction"}
                             </p>
                             <p className="text-sm text-muted-foreground">

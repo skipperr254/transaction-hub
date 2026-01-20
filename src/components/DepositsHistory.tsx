@@ -180,36 +180,40 @@ export function DepositsHistory({ userId, limit = 10 }: DepositsHistoryProps) {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Date</TableHead>
-              <TableHead>Amount</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead className="text-right">Completed</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {deposits.map((deposit) => (
-              <TableRow key={deposit.id}>
-                <TableCell className="font-medium">
-                  {formatDate(deposit.created_at)}
-                </TableCell>
-                <TableCell className="font-semibold">
-                  {formatAmount(deposit.amount)}
-                </TableCell>
-                <TableCell>{getStatusBadge(deposit.status)}</TableCell>
-                <TableCell className="text-right text-sm text-muted-foreground">
-                  {deposit.status === "paid_out" && deposit.paid_out_at
-                    ? formatDate(deposit.paid_out_at)
-                    : deposit.status === "confirmed" && deposit.confirmed_at
-                      ? formatDate(deposit.confirmed_at)
-                      : "-"}
-                </TableCell>
+        <div className="overflow-x-auto">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Date</TableHead>
+                <TableHead>Amount</TableHead>
+                <TableHead>Status</TableHead>
+                <TableHead className="text-right hidden md:table-cell">
+                  Completed
+                </TableHead>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+            </TableHeader>
+            <TableBody>
+              {deposits.map((deposit) => (
+                <TableRow key={deposit.id}>
+                  <TableCell className="font-medium whitespace-nowrap">
+                    {formatDate(deposit.created_at)}
+                  </TableCell>
+                  <TableCell className="font-semibold">
+                    {formatAmount(deposit.amount)}
+                  </TableCell>
+                  <TableCell>{getStatusBadge(deposit.status)}</TableCell>
+                  <TableCell className="text-right text-sm text-muted-foreground hidden md:table-cell whitespace-nowrap">
+                    {deposit.status === "paid_out" && deposit.paid_out_at
+                      ? formatDate(deposit.paid_out_at)
+                      : deposit.status === "confirmed" && deposit.confirmed_at
+                        ? formatDate(deposit.confirmed_at)
+                        : "-"}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
 
         {/* Show failure reason if any */}
         {deposits.some((d) => d.status === "failed" && d.failure_reason) && (

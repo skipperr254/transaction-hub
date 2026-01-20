@@ -21,6 +21,7 @@ import {
   ShoppingBag,
 } from "lucide-react";
 import type { User, Session } from "@supabase/supabase-js";
+import { Header } from "@/components/Header";
 
 const Index = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -48,48 +49,18 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-secondary">
       {/* Header */}
-      <header className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-sm border-b border-border/50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <Gift className="h-6 w-6 text-primary" />
-            <h1 className="text-xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
-              Treatcode
-            </h1>
-          </div>
-
-          <div className="flex items-center space-x-4">
-            {user ? (
-              <Button onClick={() => navigate("/dashboard")} variant="default">
-                Dashboard
-              </Button>
-            ) : (
-              <>
-                <Button
-                  variant="ghost"
-                  asChild
-                  className="hidden sm:inline-flex"
-                >
-                  <Link to="/auth">Sign In</Link>
-                </Button>
-                <Button asChild>
-                  <Link to="/auth">Get Started</Link>
-                </Button>
-              </>
-            )}
-          </div>
-        </div>
-      </header>
+      <Header userEmail={user?.email} />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-4 md:pt-48 md:pb-32 container mx-auto text-center">
+      <section className="pt-24 pb-12 px-4 md:pt-48 md:pb-32 container mx-auto text-center">
         <div className="max-w-4xl mx-auto space-y-6">
           <div className="inline-block p-2 px-4 rounded-full bg-secondary/50 mb-4 animate-fade-in">
             <span className="text-sm font-medium text-muted-foreground">
               ✨ Fun shouldn't feel reckless
             </span>
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
-            Get what you want. <br />
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-foreground leading-tight">
+            Get what you want. <br className="hidden sm:block" />
             <span className="text-primary">No Guilt.</span>
           </h1>
 
@@ -129,7 +100,7 @@ const Index = () => {
       </section>
 
       {/* Concept Section */}
-      <section className="py-24 bg-card/50">
+      <section className="py-16 md:py-24 bg-card/50">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="space-y-6">
@@ -180,8 +151,8 @@ const Index = () => {
       </section>
 
       {/* Your Money Your Rules */}
-      <section className="py-24 container mx-auto px-4 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-16">
+      <section className="py-16 md:py-24 container mx-auto px-4 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 md:mb-16">
           Your money, your rules.
         </h2>
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -222,7 +193,7 @@ const Index = () => {
       </section>
 
       {/* Retailers */}
-      <section className="py-24 bg-secondary/30">
+      <section className="py-16 md:py-24 bg-secondary/30">
         <div className="container mx-auto px-4 text-center">
           <div className="inline-block p-2 px-4 rounded-full bg-background mb-6 shadow-sm">
             <span className="text-sm font-medium text-foreground">
@@ -237,7 +208,7 @@ const Index = () => {
             lifestyle.
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {[
               "ASOS",
               "Nike",
@@ -263,7 +234,7 @@ const Index = () => {
       </section>
 
       {/* Social Proof / CTA */}
-      <section className="py-24 bg-background relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-background relative overflow-hidden">
         {/* Decorative background elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-30 pointer-events-none">
           <div className="absolute top-10 left-10 w-64 h-64 bg-purple-100 rounded-full blur-[100px]"></div>
@@ -275,7 +246,7 @@ const Index = () => {
             Join thousands of smart spenders.
           </h2>
 
-          <div className="flex justify-center items-center gap-4 md:gap-12 mb-16 opacity-80">
+          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-12 mb-16 opacity-80">
             <div className="flex flex-col items-center gap-2">
               <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
                 <PiggyBank className="w-8 h-8 text-primary" />
