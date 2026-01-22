@@ -60,8 +60,8 @@ const Index = () => {
             </span>
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-foreground leading-tight">
-            Get what you want. <br className="hidden sm:block" />
-            <span className="text-primary">No Guilt.</span>
+            Buy what you want, <br className="hidden sm:block" />
+            <span className="text-primary">whenever you want.</span>
           </h1>
 
           <div className="flex flex-wrap justify-center gap-4 text-muted-foreground md:text-lg mt-6 font-medium">
@@ -105,7 +105,7 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="space-y-6">
               <h2 className="text-3xl md:text-4xl font-bold">
-                With Treatcode, every treat is pre-saved.
+                With Treatcode everything is already paid for
               </h2>
               <div className="prose prose-lg text-muted-foreground space-y-4">
                 <p className="text-xl">
@@ -124,23 +124,53 @@ const Index = () => {
             <div className="relative">
               {/* Visual abstract representation */}
               <div className="aspect-square rounded-3xl bg-gradient-to-tr from-primary/20 to-purple-500/20 p-8 flex items-center justify-center">
-                <div className="grid gap-4 w-full">
-                  <Card className="bg-background/80 backdrop-blur border-0 shadow-lg p-4 animate-pulse">
-                    <div className="flex justify-between items-center mb-2">
-                      <div className="h-2 w-20 bg-muted rounded"></div>
-                      <div className="h-2 w-8 bg-green-500 rounded"></div>
+                <div className="grid gap-6 w-full max-w-sm">
+                  {/* Card 1: Accumulation */}
+                  <Card className="bg-background/80 backdrop-blur border-0 shadow-lg p-5">
+                    <div className="flex justify-between items-center">
+                      <div className="flex items-center gap-3">
+                        <div className="p-2 bg-blue-100 text-blue-600 rounded-full">
+                          <TrendingUp className="w-5 h-5" />
+                        </div>
+                        <div>
+                          <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
+                            Balance
+                          </p>
+                          <p className="text-xl font-bold text-foreground">
+                            £150.00
+                          </p>
+                        </div>
+                      </div>
+                      <div className="text-xs font-medium text-green-600 bg-green-100 px-2 py-1 rounded-full">
+                        +£50/mo
+                      </div>
                     </div>
-                    <div className="h-8 w-24 bg-muted rounded mb-2"></div>
                   </Card>
-                  <Card className="bg-background/90 backdrop-blur border-0 shadow-xl p-4 scale-105">
-                    <div className="flex items-center gap-3">
-                      <div className="p-2 bg-primary/10 rounded-full">
-                        <Gift className="w-5 h-5 text-primary" />
+
+                  {/* Card 2: Redemption */}
+                  <Card className="bg-background/95 backdrop-blur border-0 shadow-xl p-5 scale-105 ring-1 ring-primary/10">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center gap-3">
+                        <div className="p-2 bg-primary/10 rounded-full text-primary">
+                          <Gift className="w-5 h-5" />
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold">
+                            Treatcode Voucher
+                          </p>
+                          <p className="text-xs text-muted-foreground">
+                            ASOS, Nike, & more
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <div className="h-2 w-24 bg-muted rounded mb-1"></div>
-                        <div className="text-lg font-bold">Redeemed!</div>
-                      </div>
+                    </div>
+                    <div className="bg-secondary/50 rounded-lg p-3 flex items-center justify-between">
+                      <span className="text-sm font-mono text-muted-foreground">
+                        TC-8X92-MN...
+                      </span>
+                      <span className="text-sm font-bold text-primary">
+                        Redeemed!
+                      </span>
                     </div>
                   </Card>
                 </div>
@@ -302,8 +332,15 @@ const Index = () => {
                 Support
               </a>
             </div>
-            <div className="text-primary-foreground/70 text-sm">
-              © 2026 Treatcode. All rights reserved.
+            <div className="text-primary-foreground/70 text-sm text-center md:text-right">
+              <p>© 2026 Treat Code Ltd. All rights reserved.</p>
+              <p className="mt-2 text-xs opacity-80">
+                Treat Code Ltd is registered in the UK (16429228)
+              </p>
+              <p className="mt-1 text-xs opacity-80 max-w-md ml-auto">
+                Treat Code Ltd is a Limited Network Exclusion company as defined
+                by the Financial Conduct Authority FCA
+              </p>
             </div>
           </div>
         </div>

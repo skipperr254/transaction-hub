@@ -49,11 +49,11 @@ export const Header = ({ userEmail, userName }: HeaderProps) => {
     <header className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-sm border-b border-border/50 transition-all duration-300">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div
-          className="flex items-center space-x-2 cursor-pointer"
+          className="flex items-center space-x-3 cursor-pointer"
           onClick={() => handleNavigation(isLoggedIn ? "/dashboard" : "/")}
         >
-          <Gift className="h-6 w-6 text-primary" />
-          <h1 className="text-xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+          <Gift className="h-8 w-8 text-primary" />
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
             Treatcode
           </h1>
         </div>
@@ -98,8 +98,8 @@ export const Header = ({ userEmail, userName }: HeaderProps) => {
         <div className="md:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu className="h-6 w-6" />
+              <Button variant="ghost" size="icon" className="h-12 w-12 [&_svg]:size-8">
+                <Menu />
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
